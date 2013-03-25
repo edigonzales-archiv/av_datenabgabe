@@ -1,0 +1,99 @@
+Ext.define('Buks.view.Centerpanel', {
+    extend: 'Ext.grid.Panel',
+    alias: 'widget.centerPanel',
+    title: 'All Users',
+    //bodyStyle: 'background: #ffc; valign: middle;',
+    forceFit: true, // ????
+    cls: 'alt-x-grid-row',   
+    initComponent: function () {
+        this.store = {
+            fields: [
+                {name: 'gem_name', mapping: 'properties.gem_name', type: 'string'},
+                {name: 'gem_bfs', mapping: 'properties.gem_bfs', type: 'int'},
+                {name: 'lieferdatum', mapping: 'properties.lieferdatum', type: 'string'},
+                {name: 'nfgeometer', mapping: 'properties.nfgeometer', type: 'string'},
+                {name: 'pdf', mapping: 'properties.pdf', type: 'string'},
+                {name: 'itfch', mapping: 'properties.itfch', type: 'string'},
+                {name: 'itfso', mapping: 'properties.itfso', type: 'string'},
+                {name: 'dxf', mapping: 'properties.dxf', type: 'string'},                
+                {name: 'shp', mapping: 'properties.shp', type: 'string'}
+            ],
+            proxy: {
+                type: 'ajax',
+                url: 'http://www.sogeo.ch/extjs/mvc3/data/datenabgabe_info.json',
+                reader: {
+                    type: 'json',
+                    root: 'features'
+                }
+            },
+            sorters: [{
+                     property: 'gem_name',
+                     direction: 'ASC'
+                 }, {
+                     property: 'gem_bfs',
+                     direction: 'ASC'
+            }],            
+            autoLoad: true
+        };
+        this.columns = [
+            { header: 'Gemeinde', dataIndex: 'gem_name', flex: 1, width: 180},
+            { header: 'BFS-Nr.', dataIndex: 'gem_bfs', width: 60},
+            { header: 'Lieferdatum', dataIndex: 'lieferdatum', width: 80},
+            { header: 'Nachf&uuml;hrungsgeometer', dataIndex: 'nfgeometer', width: 160, renderer: infoGeometerRenderer},
+            { header: 'Situationsplan', dataIndex: 'pdf', align: 'center', width: 80, renderer: pdfIconRenderer},
+            { header: 'ITF-CH', dataIndex: 'itfch', align: 'center', width: 60, renderer: zipIconRenderer},
+            { header: 'ITF-SO', dataIndex: 'itfso', align: 'center', width: 60, renderer: zipIconRenderer},
+            { header: 'DXF', dataIndex: 'dxf', align: 'center', width: 60, renderer: zipIconRenderer},
+            { header: 'SHP', dataIndex: 'shp', align: 'center', width: 60, renderer: zipIconRenderer}            
+        ];
+        this.callParent(arguments);
+    }  
+});
+
+function emailRenderer(val) {
+    if (val != null) {
+        return '<a href=\'mailto:' + val + ';\'>' + val + '</a>';
+    }
+    return val;
+};
+
+
+function infoGeometerRenderer(value, p, record) {
+    if (value != null) {
+        //console.log(record);
+        return '<a class="test" href="#">' + value + '</a>';
+    }
+    return value;
+};
+
+function pdfIconRenderer(value, p, record) {
+    if (value != null) {
+        return '<a href=\'http://' + value + '\' target=\'_blank\' \'><img src="img/pdficon_small.png" border="0"></a>';
+    }
+    return value;
+};
+
+function zipIconRenderer(value, p, record) {
+    if (value != null) {
+        return '<a href=\'http://' + value + '\'><img src="img/zip_icon.png" border="0"></a>';
+    }
+    return value;
+};
+
+function openWindow(id){
+        
+//console.log(record); 
+        
+ Ext.create('Ext.window.Window', {
+    title: 'Nachf&uuml;hrungsgeometer',
+    height: 200,
+    width: 400,
+    layout: 'fit',
+    items: {  // Let's put an empty grid in just to illustrate fit layout
+        xtype: 'grid',
+        border: false,
+        columns: [{header: 'World'}],                 // One header just for show. There's no data,
+        store: Ext.create('Ext.data.ArrayStore', {}) // A dummy empty data store
+    }
+}).show();
+};
