@@ -3,7 +3,7 @@ Ext.define('Buks.store.Communes', {
     model: 'Buks.model.Commune',
     proxy: {
         type: 'ajax',
-        url: 'datenabgabe_info.json',
+        url: 'data/datenabgabe_info.json',
         reader: {
             type: 'json',
             root: 'features'
