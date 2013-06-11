@@ -5,6 +5,8 @@ Ext.define('Buks.view.Infowindow', {
     title : 'Nachf&uuml;hrungsgeometer',
     layout: 'fit',
     autoShow: true,
+    constrain: true,
+    constrainHeader: true,   
  
     height: 300,
     width: 700,
