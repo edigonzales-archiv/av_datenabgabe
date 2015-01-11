@@ -1,7 +1,7 @@
 Ext.define('Buks.view.Headerpanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.headerPanel',
-    bodyCls: ['sogis-header-body'],
+    //bodyCls: ['sogis-header-body'],
     margins: '0 0 0 0',
     items: [{
         xtype: 'panel',
@@ -15,7 +15,7 @@ Ext.define('Buks.view.Headerpanel', {
         border: false,
         frame: false,
         bodyCls: ['sogis-headernav'],
-        height: 24,
+        height: 36,
         //html: '<ul> <li> <a class="undefined" href="http://www.so.ch/departemente/bau-und-justiz/sogis/rechtliche-hinweise.html" title="Rechtliche Hinweise"  target="_blank">Rechtliche Hinweise</a> </li> </ul><span class="x-panel-header-text sogis-header-text">Daten der amtlichen Vermessung Kanton Solothurn</span>',
         html: setHtml()
         //html: foobar()
@@ -26,26 +26,26 @@ Ext.define('Buks.view.Headerpanel', {
 function setHtml() {
 
 	var sogis_menu = [
-		{'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis.html', 'class': 'sogis-first', 'title': 'SO!GIS',  'target':'_blank', 'submenu' : [
+		{'url': 'http://www.sogis.ch', 'class': 'sogis-first', 'title': 'SO!GIS',  'target':'_blank', 'submenu' : [
 			{'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/leitbild.html', 'title': 'Leitbild', 'target':'_blank'},
 			{'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/open-source-gis.html', 'title': 'Open Source GIS', 'target':'_blank'},
 			{'url': 'http://www.so.ch/departemente/bau-und-justiz/amt-fuer-geoinformation.html', 'title': 'Amt f&uuml;r Geoinformation', 'target':'_blank'},
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis.html', 'title': 'SO!GIS', 'target':'_blank'}
 		]} ,
-		{'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/interaktive-karten.html', 'title': 'Interaktive Karten', 'target':'_blank', 'submenu' : [
+		{'url': 'https://www-p.so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-geoinformation/geoportal/interaktive-karten/', 'title': 'Interkative Karten', 'target':'_blank', 'submenu' : [
             {'url': 'javascript:provLayerSwitcher(\'ortsplan\');', 'title': 'Ortsplan', 'target':''},
             {'url': 'javascript:provLayerSwitcher(\'nutzungszonen\');', 'title': 'Nutzungszonen', 'target':''},
             {'url': 'javascript:provLayerSwitcher(\'gemeindegis\');', 'title': 'Gemeindegis', 'target':''},
             {'url': 'javascript:provLayerSwitcher(\'grundbuch\');', 'title': 'Grundbuch', 'target':''},
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/interaktive-karten.html', 'title': 'Noch mehr Karten', 'target':'_blank'}
         ]},
-        {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/sogis-daten.html', 'title': 'Datenbezug', 'target':'_blank', 'submenu' : [
+        {'url': 'http://www.sogis1.so.ch/sogis/OnLineData/php/index.php', 'title': 'Geodatenbezug', 'target':'_blank', 'submenu' : [
             {'url': 'http://www.sogis1.so.ch/sogis/OnLineData/php/index.php', 'title': 'Online Bezug', 'target':'_blank'},
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/sogis-daten/sogis-downloads.html', 'title': 'Übersichtskarten', 'target':'_blank'},
             {'url': 'http://www.sogis1.so.ch/sogis/OnLineData/php/datenbeschreibung_auswahl.php', 'title': 'Datenbeschreibung', 'target':'_blank'}
             
         ]},
-        {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/web-map-services-wms.html', 'title': 'WMS', 'target':'_blank', 'submenu' : [
+        {'url': 'https://www-p.so.ch/verwaltung/bau-und-justizdepartement/amt-fuer-geoinformation/geoportal/geodienste/', 'title': 'Geodienste', 'target':'_blank', 'submenu' : [
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/web-map-services-wms/wms-geologie.html', 'title': 'WMS Geologie', 'target':'_blank'},
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/web-map-services-wms/wms-gewaesser.html', 'title': 'WMS Gewässer', 'target':'_blank'},
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/web-map-services-wms/wms-naturgefahren.html', 'title': 'WMS Naturgefahren', 'target':'_blank'},
@@ -62,14 +62,14 @@ function setHtml() {
             {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/web-map-services-wms/av-wms.html', 'title': 'AV WMS', 'target':'_blank'}
             
             
-        ]},
-	  {'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/rechtliche-hinweise.html', 'title': 'Rechtliche Hinweise', 'target':'_blank'}
+        ]}//,
+	  //{'url': 'http://www.so.ch/departemente/bau-und-justiz/sogis/rechtliche-hinweise.html', 'title': 'Rechtliche Hinweise', 'target':'_blank'}
 	];
 
 	var menuString = getMenuString(sogis_menu);
     //console.log(menuString);
     
-    return menuString + '<span class="x-panel-header-text sogis-header-text">Daten der amtlichen Vermessung Kanton Solothurn</span>';
+    return menuString + '<span class="x-panel-header-text sogis-header-text">Daten der amtlichen Vermessung</span>';
 };
 
 
@@ -87,7 +87,8 @@ function getMenuString(menu) {
         title = menu[i].title.replace(/<(?:.|\n)*?>/gm, '');
         menuString += '<li><a class="'+aClass+'" href="'+menu[i].url+'" title="'+title+'" target="'+menu[i].target+'">'+menu[i].title+'</a>';
         if (menu[i].submenu) {
-            menuString += getMenuString(menu[i].submenu);
+			// 2015-01-11 / sz: Dropdown gibts nicht mehr mehr...
+            //menuString += getMenuString(menu[i].submenu);
         }
         menuString += '</li>';
     }

@@ -18,7 +18,7 @@ Ext.define('Buks.view.Viewport', {
                 region: 'north',
                 collapsible: false,
                 split: false,
-                height: 124
+                height: 136
             },{
                 xtype: 'centerPanel',
                 id: 'dataGrid',
