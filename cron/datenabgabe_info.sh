@@ -1,13 +1,11 @@
 #!/bin/bash
 rm /tmp/datenabgabe_info.json
 
-ogr2ogr  -f GeoJSON /tmp/datenabgabe_info.json PG:"dbname='rosebud' host='localhost' port='5432' user='stefan' password='ziegler12' schemas=av_nfgeometer tables=av_nfgeometer.datenabgabe_info_v"
+ogr2ogr -f GeoJSON /tmp/datenabgabe_info.json PG:"dbname='sogis' host='srsofaioi4531' port='5432' user='mspublic' password='mspublic' schemas=av_nfgeometer tables=av_nfgeometer.datenabgabe_info_v"
 
-cp /tmp/datenabgabe_info.json /home/sogeo/sogeo.ch/docroot/extjs/mvc3/datenabgabe_info.json
-cp /tmp/datenabgabe_info.json /home/sogeo/sogeo.ch/docroot/daten/av/data/datenabgabe_info.json 
+cp /tmp/datenabgabe_info.json /opt/wwwroot/sogis/develop/bjsvwzie/av_datenabgabe/data/datenabgabe_info.json 
 
-chmod +r /home/sogeo/sogeo.ch/docroot/extjs/mvc3/datenabgabe_info.json
-chmod +r /home/sogeo/sogeo.ch/docroot/daten/av/data/datenabgabe_info.json
+chmod +r /opt/wwwroot/sogis/develop/bjsvwzie/av_datenabgabe/data/datenabgabe_info.json
 
 
 
