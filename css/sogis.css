@@ -32,7 +32,7 @@
 	text-transform: uppercase;	
 	font-weight: bold;
 	font-size: 16px;
-	font-family: 'Frutiger', 'Open Sans', sans, sans-serif;    
+	font-family:  'Frutiger LT Com 55 Roman', Arial, sans, sans-serif;    
 }
 
 .sogis-headernav {
@@ -59,10 +59,10 @@
 	/*border-right: 1px solid #CCC;*/
 	color: #656d78;
 	text-decoration: none;
-	font-weight: bold;
+	font-weight: 900;
 	font-size: 16px;
 	text-transform: uppercase;
-	font-family: 'Frutiger', 'Open Sans', sans, sans-serif;    
+	font-family:  'Frutiger LT Com 55 Roman', Arial, sans, sans-serif;    
 	background: url(../img/white.gif) repeat-y;
 }
 
